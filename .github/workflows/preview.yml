@@ -22,7 +22,6 @@ jobs:
 
       - name: Build
         - run: echo '${{ github.event.pull_request.number }}'
-        - run: echo 'baseURL = "https://preview.loongarch.dev/${{ github.event.pull_request.number }}"' > config/preview/config.toml
         - run: hugo --minify --environment preview --cleanDestinationDir
 
       - name: Deploy
