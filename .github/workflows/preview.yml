@@ -20,8 +20,11 @@ jobs:
         with:
           hugo-version: 'latest'
 
+      - name: baseurl
+        run: echo "baseURL = \"https://preview.loongarch.dev/${{ github.event.pull_request.number }}\"" > config/preview/config.toml
+
       - name: echo PR
-        run: echo '${{ github.event.pull_request.number }}'
+        run: cat config/preview/config.toml
 
       - name: Build
         run: hugo --minify --environment preview --cleanDestinationDir
