@@ -20,9 +20,11 @@ jobs:
         with:
           hugo-version: 'latest'
 
+      - name: echo PR
+        run: echo '${{ github.event.pull_request.number }}'
+
       - name: Build
-        - run: echo '${{ github.event.pull_request.number }}'
-        - run: hugo --minify --environment preview --cleanDestinationDir
+        run: hugo --minify --environment preview --cleanDestinationDir
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
