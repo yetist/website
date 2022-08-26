@@ -2,7 +2,7 @@ name: website-preview-clean
 
 on:
   pull_request_target:
-    branches: [ main ]
+    types: [closed]
 
 jobs:
   deploy:
